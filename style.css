@@ -1,0 +1,178 @@
+html {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: rgb(255, 255, 255);
+  font-family: ;
+}
+
+body.dark {
+  background: rgb(42, 41, 41);
+}
+
+.calculator {
+  background: whitesmoke;
+  width: 400px;
+  border-radius: 12px;
+  box-shadow: 0 5px 30px -5px rgba(0, 0, 0, 0.6);
+}
+.calculator-display {
+  background: white;
+  color: black;
+  display: inline-block;
+  width: 100%;
+  border-radius: 10px 10px 0 0;
+}
+
+.calculator-display h1 {
+  margin: 0;
+  padding: 25px;
+  font-size: 45px;
+  font-family: 'Lucida Console', sans-serif;
+  font-weight: 100;
+  overflow-x: auto;
+}
+
+.calculator-button {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  grid-gap: 10px;
+  padding: 10px;
+}
+
+.equal-sign {
+  grid-column: -2;
+  grid-row: 2 / span 4;
+}
+
+button {
+  position: relative;
+  min-height: 50px;
+  font-size: 20px;
+  font-weight: 100;
+  border: none;
+  border-radius: 20px;
+  cursor: pointer;
+  background: rgb(255, 255, 255);
+}
+
+button:hover {
+  filter: brightness(110%);
+}
+
+button:active {
+  transform: translateY(2px);
+}
+
+button:focus {
+  outline: none;
+}
+
+.upper {
+  position: absolute;
+  font-size: 10px;
+  left: 60%;
+  top: 30%;
+}
+
+.operator,
+.plusOrMinus,
+.operation {
+  color: black;
+  font-size: 30px;
+}
+
+.clear {
+}
+
+.clear:hover {
+  filter: brightness(90%);
+}
+
+@media screen and(max-width:600px) {
+  .calculator {
+    width: 95%;
+  }
+}
+
+.change-theme {
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  align-items: flex-end;
+  justify-content: flex-end;
+}
+
+.switch {
+  position: relative;
+  display: inline-block;
+  width: 60px;
+  height: 34px;
+}
+
+/* Hide default HTML checkbox */
+.switch input {
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+
+/* The slider */
+.slider {
+  position: absolute;
+  cursor: pointer;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: #ccc;
+  -webkit-transition: 0.4s;
+  transition: 0.4s;
+}
+
+.slider:before {
+  position: absolute;
+  content: '';
+  height: 26px;
+  width: 26px;
+  left: 4px;
+  bottom: 4px;
+  background-color: white;
+  -webkit-transition: 0.4s;
+  transition: 0.4s;
+}
+
+input:checked + .slider {
+  background-color: black;
+}
+
+input:focus + .slider {
+  box-shadow: 0 0 1px black;
+}
+
+input:checked + .slider:before {
+  -webkit-transform: translateX(26px);
+  -ms-transform: translateX(26px);
+  transform: translateX(26px);
+}
+
+/* Rounded sliders */
+.slider.round {
+  border-radius: 34px;
+}
+
+.slider.round:before {
+  border-radius: 50%;
+}
+
+.dark > button,
+.calculator-display.dark {
+  background: rgb(42, 41, 41);
+  color: white;
+}
